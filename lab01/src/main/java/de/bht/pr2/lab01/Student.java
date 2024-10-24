@@ -20,7 +20,12 @@ public class Student {
    *
    * @param dataRow a comma-separated row describing a student object
    */
-  public Student(String dataRow) {
-    // TODO: Here goes your code ...
+  public Student(String dataRow) throws StudentParseException {
+
+    String[] tab = dataRow.split(",");
+    if(tab.length != 4){
+      throw new StudentParseException("faulti line : " + dataRow);
+    }
+
   }
 }

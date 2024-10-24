@@ -44,14 +44,25 @@ public class Lab1Main {
     // Parse each line ...
     for (String datenZeile : data) {
       // ... and try to create a Student object
-      Student student = new Student(datenZeile);
-      students.add(student);
+      try{
+        Student student = new Student(datenZeile);
+        students.add(student);
+      }catch (StudentParseException e){
+        System.out.println(e.getMessage());
+      }catch (RegistrationNumberException e){
+        System.out.println(e.getMessage());
+      }catch (WrongCourseOfStudiesException e){
+        System.out.println(e.getMessage());
+      }catch (NotPaidTuitionFeeException e){
+        System.out.println(e.getMessage());
+      }
+
     }
 
     // Print all students which could be parsed
-    System.out.println("List of Student objects:");
-    for (Student student : students) {
-      System.out.println(student);
-    }
+    // System.out.println("List of Student objects:");
+    // for (Student student : students) {
+    //   System.out.println(student);
+    // }
   }
 }

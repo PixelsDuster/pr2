@@ -20,7 +20,10 @@ public class Student {
    *
    * @param dataRow a comma-separated row describing a student object
    */
-  public Student(String dataRow) throws StudentParseException {
+
+   // add the other exceptions to throws
+   // finish the rest of the excercices
+  public Student(String dataRow) throws StudentParseException  {
 
     String[] tab = dataRow.split(",");
     if(tab.length != 4){

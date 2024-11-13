@@ -13,7 +13,7 @@ class Example08Test {
 
   @Test
   void testFail() {
-    //fail("Ach nein..."); TODO: remove comment to see effect
+    //fail("Ach nein..."); //TODO: remove comment to see effect
     assertEquals(1, 1); // Wird nicht ausgefuehrt
     System.out.println("Ich werde auch nicht gedruckt");
   }

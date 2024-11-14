@@ -48,21 +48,21 @@ public class Lab1Main {
         Student student = new Student(datenZeile);
         students.add(student);
       }catch (StudentParseException e){
-        System.out.println(e.getMessage());
+        e.printStackTrace();
       }catch (RegistrationNumberException e){
-        System.out.println(e.getMessage());
+        e.printStackTrace();
       }catch (WrongCourseOfStudiesException e){
-        System.out.println(e.getMessage());
+        e.printStackTrace();
       }catch (NotPaidTuitionFeeException e){
-        System.out.println(e.getMessage());
+        e.printStackTrace();
       }
 
     }
 
     // Print all students which could be parsed
-    // System.out.println("List of Student objects:");
-    // for (Student student : students) {
-    //   System.out.println(student);
-    // }
+    System.out.println("List of Student objects:");
+    for (Student student : students) {
+      System.out.println(student);
+    }
   }
 }

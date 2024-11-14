@@ -1,5 +1,8 @@
 package de.bht.pr2.lab01;
 
+import java.util.List;
+import java.util.ArrayList;
+
 public class Student {
 
   //-------------------------------------------
@@ -23,12 +26,41 @@ public class Student {
 
    // add the other exceptions to throws
    // finish the rest of the excercices
-  public Student(String dataRow) throws StudentParseException  {
-
+  public Student(String dataRow) throws StudentParseException, RegistrationNumberException, WrongCourseOfStudiesException, NotPaidTuitionFeeException {
+    // Check number of Elements
     String[] tab = dataRow.split(",");
+
+    // Check the validity of the Data line
     if(tab.length != 4){
       throw new StudentParseException("faulti line : " + dataRow);
     }
+    // Check the validity of MartrikelNr.
+    if(!tab[1].matches("^\\d+$") || tab[1].length() < 5){
+      throw new RegistrationNumberException("Invalid Registration number : " + tab[1]);
+    }
+    // Check the validity of Studiengang
+    List<String> coursesList = new ArrayList<String>();
+    coursesList.add("Medieninformatik");
+    coursesList.add("Technische Informatik");
+    coursesList.add("Druck- und Medientechnik");
+    coursesList.add("Screen Based Media");
 
+    if(!coursesList.contains(tab[2])){
+      throw new WrongCourseOfStudiesException("Invalid Course of Studies : " + tab[2]);
+    }
+    //Check the validity Rückmeldungsgebühr
+    if(!tab[3].equals("312")){
+      throw new NotPaidTuitionFeeException("Missing paiment, need to pay " + (312 - Integer.valueOf(tab[3])) + "€");
+    }
+
+    // Creating the Object
+    this.name = tab[0];
+    this.registrationNumber = Integer.valueOf(tab[1]);
+    this.courseOfStudies = tab[2];
+
+  }
+
+  public String toString(){
+    return "Student : " + this.name + ", MatrikelNr. : " + this.registrationNumber + ", Studiengang : " + this.courseOfStudies ;
   }
 }

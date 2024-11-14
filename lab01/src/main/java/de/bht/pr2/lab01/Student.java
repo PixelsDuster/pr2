@@ -49,8 +49,15 @@ public class Student {
       throw new WrongCourseOfStudiesException("Invalid Course of Studies : " + tab[2]);
     }
     //Check the validity Rückmeldungsgebühr
-    if(!tab[3].equals("312")){
-      throw new NotPaidTuitionFeeException("Missing paiment, need to pay " + (312 - Integer.valueOf(tab[3])) + "€");
+    int gebuhr = 0;
+    try {
+      gebuhr = Integer.parseInt(tab[3]);
+    } catch (NumberFormatException e) {
+      throw new StudentParseException("Wrong tuition paid in data: '" + dataRow + "'.");
+    }
+
+    if(gebuhr < 312){
+      throw new NotPaidTuitionFeeException("Missing paiment, need to pay " + (312 - gebuhr) + "€");
     }
 
     // Creating the Object

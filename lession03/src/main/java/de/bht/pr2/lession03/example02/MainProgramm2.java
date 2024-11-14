@@ -18,6 +18,7 @@ public class MainProgramm2 {
 
     System.out.println("------ addAll(liste2) ------");
     List<String> liste2 = new ArrayList<String>();
+    // liste2.add("a");
     liste2.add("b");
     liste2.add("c");
     liste2.add("d");

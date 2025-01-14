@@ -1,12 +1,13 @@
 package de.bht.pr2.lab04;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
 
 class CertificateSerdeTest {
 
   @Test
   public void test1() {
-    /* Uncomment
+    // Uncomment
     final Course prog1 = new Course("Programmierung 1", "Medieninformatik");
     final Student siamak = new Student("Siamak", 12345);
     final Subscription siamakProg1 = new Subscription(siamak, prog1);
@@ -21,7 +22,7 @@ class CertificateSerdeTest {
     Certificate certificate1 = (Certificate) objectSerde.deserialize(path);
 
     Assertions.assertEquals(certificate, certificate1);
-    */
+    
   }
 }
 
